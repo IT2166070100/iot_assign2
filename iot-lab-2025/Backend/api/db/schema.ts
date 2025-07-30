@@ -24,6 +24,10 @@ export const books = t.pgTable("books", {
     .notNull(),
   publishedAt: t.timestamp().notNull(),
 
+  description: t.text().notNull(),
+  summary: t.text().notNull(),
+  category: t.varchar({ length: 255 }).notNull(),
+
   genreId: t.bigint({ mode: "number" }).references(() => genres.id, {
     onDelete: "set null",
   }),
