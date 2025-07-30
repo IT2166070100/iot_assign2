@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import cafeBackgroundImage from "../assets/images/bg-cafe-1.jpg";
-import ajPanwitImage from "../assets/images/aj-panwit.jpg";
+import mypic from "../assets/images/66070100.jpg";
 import coffeeImage from "../assets/images/coffee-1.jpg";
 
 export default function HomePage() {
@@ -25,7 +25,7 @@ export default function HomePage() {
           </p>
 
           <div>
-            <img src={ajPanwitImage} alt="Panwit Tuwanut" className="h-full w-full object-cover" />
+            <img src={mypic} alt="Panwit Tuwanut" className="h-full w-full object-cover" />
           </div>
         </div>
         <p className="text-right mt-8">
