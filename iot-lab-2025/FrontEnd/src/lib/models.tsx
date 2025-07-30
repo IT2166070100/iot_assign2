@@ -3,4 +3,7 @@ export interface Book {
   title: string;
   author: string;
   publishedAt: string;
+  description: string,
+  summary: string,
+  category: string,
 }

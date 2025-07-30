@@ -1,4 +1,4 @@
-import { drizzle as drizzlePgsql } from "drizzle-orm/vercel-postgres";
+import { drizzle as drizzlePgsql } from "drizzle-orm/vercel-postgres/index.js";
 import * as schema from "./schema.js";
 
 const drizzle = drizzlePgsql({

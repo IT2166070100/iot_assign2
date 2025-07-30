@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
-import { Button, Container, Divider, TextInput } from "@mantine/core";
+import { Button, Container, Divider, TextInput, Textarea } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
@@ -18,12 +18,18 @@ export default function BookCreatePage() {
       title: "",
       author: "",
       publishedAt: new Date(),
+      description: "",
+      summary: "",
+      category: "",
     },
 
     validate: {
       title: isNotEmpty("กรุณาระบุชื่อหนังสือ"),
       author: isNotEmpty("กรุณาระบุชื่อผู้แต่ง"),
       publishedAt: isNotEmpty("กรุณาระบุวันที่พิมพ์หนังสือ"),
+      description: isNotEmpty("กรุณาระบุรายละเอียดหนังสือ"),
+      summary: isNotEmpty("กรุณาระบุเรื่องย่อ"),
+      category: isNotEmpty("กรุณาระบุหมวดหมู่"),
     },
   });
 
@@ -92,9 +98,25 @@ export default function BookCreatePage() {
               {...bookCreateForm.getInputProps("publishedAt")}
             />
 
-            {/* TODO: เพิ่มรายละเอียดหนังสือ */}
-            {/* TODO: เพิ่มเรื่องย่อ */}
-            {/* TODO: เพิ่มหมวดหมู่(s) */}
+            <Textarea
+              label="รายละเอียดหนังสือ"
+              placeholder="ระบุรายละเอียดของหนังสือ"
+              rows={4}
+              {...bookCreateForm.getInputProps("description")}
+            />
+
+            <Textarea
+              label="เรื่องย่อ"
+              placeholder="ระบุเรื่องย่อของหนังสือ"
+              rows={5}
+              {...bookCreateForm.getInputProps("summary")}
+            />
+
+            <TextInput
+              label="หมวดหมู่"
+              placeholder="เช่น นิยาย, วิทยาศาสตร์, ประวัติศาสตร์"
+              {...bookCreateForm.getInputProps("category")}
+            />
 
             <Divider />
 
