@@ -27,12 +27,18 @@ export default function BookEditById() {
       title: "",
       author: "",
       publishedAt: new Date(),
+      description: "",
+      summary: "",
+      category: "",
     },
 
     validate: {
       title: isNotEmpty("กรุณาระบุชื่อหนังสือ"),
       author: isNotEmpty("กรุณาระบุชื่อผู้แต่ง"),
       publishedAt: isNotEmpty("กรุณาระบุวันที่พิมพ์หนังสือ"),
+      description: isNotEmpty("กรุณาระบุรายละเอียดหนังสือ"),
+      summary: isNotEmpty("กรุณาระบุเรื่องย่อ"),
+      category: isNotEmpty("กรุณาระบุหมวดหมู่"),
     },
   });
 
@@ -121,12 +127,18 @@ export default function BookEditById() {
       bookEditForm.setInitialValues({
         title: book.title,
         author: book.author,
-        publishedAt: dayjs.unix(book.publishedAt as unknown as number).toDate(),
+        publishedAt: dayjs(book.publishedAt).toDate(),
+        description: book.description,
+        summary: book.summary,
+        category: book.category,
       });
       bookEditForm.setValues({
         title: book.title,
         author: book.author,
-        publishedAt: dayjs.unix(book.publishedAt as unknown as number).toDate(),
+        publishedAt: dayjs(book.publishedAt).toDate(),
+        description: book.description,
+        summary: book.summary,
+        category: book.category,
       });
       setIsSetInitialValues(true);
     }
@@ -170,9 +182,23 @@ export default function BookEditById() {
                   {...bookEditForm.getInputProps("publishedAt")}
                 />
 
-                {/* TODO: เพิ่มรายละเอียดหนังสือ */}
-                {/* TODO: เพิ่มเรื่องย่อ */}
-                {/* TODO: เพิ่มหมวดหมู่(s) */}
+                <TextInput
+                  label="รายละเอียดหนังสือ"
+                  placeholder="รายละเอียดหนังสือ"
+                  {...bookEditForm.getInputProps("description")}
+                />
+
+                <TextInput
+                  label="เรื่องย่อ"
+                  placeholder="เรื่องย่อ"
+                  {...bookEditForm.getInputProps("summary")}
+                />
+
+                <TextInput
+                  label="หมวดหมู่"
+                  placeholder="หมวดหมู่"
+                  {...bookEditForm.getInputProps("category")}
+                />
 
                 <Divider />
 
