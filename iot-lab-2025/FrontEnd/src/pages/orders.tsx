@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Card, Group, Text, Badge } from "@mantine/core";
+import { Container, Card, Text, Badge } from "@mantine/core";
 import Layout from "../components/layout";
 import axios from "axios";
 
@@ -30,7 +30,7 @@ export default function OrdersPage() {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <Group direction="column" spacing="md">
+          <div className="flex flex-col gap-4">
             {orders.map((order) => (
               <Card key={order.id} shadow="sm" padding="md" radius="md" withBorder>
                 <Text>รหัสออเดอร์: {order.id}</Text>
@@ -41,7 +41,7 @@ export default function OrdersPage() {
                 <Text size="xs" color="dimmed">{order.createdAt}</Text>
               </Card>
             ))}
-          </Group>
+          </div>
         )}
       </Container>
     </Layout>

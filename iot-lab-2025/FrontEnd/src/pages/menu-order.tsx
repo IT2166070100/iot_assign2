@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Card, Button, TextInput, Textarea, NumberInput } from "@mantine/core";
+import { Container, Card, Button, Textarea, NumberInput } from "@mantine/core";
 import Layout from "../components/layout";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ export default function OrderCoffeePage() {
             label="จำนวนแก้ว"
             min={1}
             value={amount}
-            onChange={setAmount}
+            onChange={v => setAmount(Number(v))}
             required
           />
           <Textarea
@@ -53,6 +53,7 @@ export default function OrderCoffeePage() {
             ยืนยันการสั่งกาแฟ
           </Button>
         </Card>
+
       </Container>
     </Layout>
   );
