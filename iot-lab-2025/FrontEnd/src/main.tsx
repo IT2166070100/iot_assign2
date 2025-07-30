@@ -15,6 +15,9 @@ import BookByIdPage from "./pages/book-by-id";
 import BookEditById from "./pages/book-edit-by-id";
 import { ModalsProvider } from "@mantine/modals";
 import BookCreatePage from "./pages/book-create";
+import MenuPage from "./pages/menu";
+import OrderCoffeePage from "./pages/menu-order";
+import OrdersPage from "./pages/orders";
 
 const theme = createTheme({
   primaryColor: "orange",
@@ -41,6 +44,18 @@ const router = createBrowserRouter([
   {
     path: "/books/:bookId/edit",
     element: <BookEditById />,
+  },
+  {
+    path: "/menu",
+    element: <MenuPage />,
+  },
+  {
+    path: "/menu/:menuId/order",
+    element: <OrderCoffeePage />,
+  },
+  {
+    path: "/orders",
+    element: <OrdersPage />,
   },
 ]);
 

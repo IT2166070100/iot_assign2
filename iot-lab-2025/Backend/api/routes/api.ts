@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import booksRouter from "./books.js";
+import menuRouter from "./menu.js";
 import { bearerAuth } from "hono/bearer-auth";
 import { env } from "hono/adapter";
 
@@ -19,6 +20,8 @@ apiRouter.use(
   })
 );
 
+
 apiRouter.route("/books", booksRouter);
+apiRouter.route("/menu", menuRouter);
 
 export default apiRouter;
